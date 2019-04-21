@@ -15,6 +15,8 @@ const defaultConfig = {
   quietMode: process.env.TESTCAFE_SLACK_QUIET_MODE || false
 };
 
+console.log(`process.env: ${process.env}`);
+
 const testCafeConfigFilePath = resolvePath('.testcaferc.json');
 
 const loadReporterConfig = () => {
@@ -41,5 +43,11 @@ const loadReporterConfig = () => {
 
 const reporterConfig = loadReporterConfig();
 const config = {...defaultConfig, ...reporterConfig.options};
+
+console.log(`config.webhookUrl: ${config.webhookUrl}`);
+console.log(`config.channel: ${config.channel}`);
+console.log(`config.username: ${config.username}`);
+console.log(`config.loggingLevel: ${config.loggingLevel}`);
+console.log(`config.quietMode: ${config.quietMode}`);
 
 export default config;
